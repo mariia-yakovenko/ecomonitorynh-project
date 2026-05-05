@@ -18,8 +18,6 @@ export default function RootLayout({
   return (
     <html lang="uk">
       <head>
-        {/* Preload critical font weights so they arrive before first paint,
-            eliminating FOUT-driven layout shifts (CLS). */}
         <link
           rel="preload"
           href="/fonts/e-Ukraine-Regular.otf"
@@ -40,7 +38,9 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
-        <GoogleAnalytics gaId="G-136T1EDWVN" />
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   );
