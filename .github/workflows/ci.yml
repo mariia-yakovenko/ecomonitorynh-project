@@ -1,0 +1,36 @@
+name: CI Check
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-and-test:
+    name: Type Check and Build
+    runs-on: ubuntu-latest
+
+    steps:
+      # завантажуємо код з репозиторію
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # встановлюємо Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm" # Кешуємо модулі для швидкості
+
+      # встановлюємо залежності проєкту
+      - name: Install dependencies
+        run: npm ci
+
+      # перевіряємо TypeScript типи
+      - name: Run TypeScript type check
+        run: npx tsc --noEmit
+
+      # перевіряємо, чи успішно збирається проєкт
+      - name: Run Next.js build
+        run: npm run build
