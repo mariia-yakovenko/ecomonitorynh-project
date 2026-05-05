@@ -14,7 +14,7 @@ const StationMap = dynamic(() => import("./StationMap"), {
   loading: () => (
     <div
       style={{
-        height: "100%",
+        height: 480,
         width: "100%",
         background: "var(--color-primary-light)",
         display: "flex",
@@ -38,7 +38,7 @@ const StationCharts = dynamic(() => import("./StationCharts"), {
   loading: () => (
     <div
       style={{
-        height: 300,
+        minHeight: 310,
         background: "var(--color-primary-light)",
         border: "1.5px dashed var(--color-mid)",
         borderRadius: "var(--radius-md)",

@@ -17,7 +17,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="uk">
-      <head />
+      <head>
+        {/* Preload critical font weights so they arrive before first paint,
+            eliminating FOUT-driven layout shifts (CLS). */}
+        <link
+          rel="preload"
+          href="/fonts/e-Ukraine-Regular.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/e-Ukraine-Bold.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body>
         <WebVitals />
         <Navbar />

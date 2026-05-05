@@ -4,27 +4,31 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 /* e-ukraine font */
+/* Weights 100–300, 500 use "optional": browser skips them if they aren't
+   cached, avoiding FOUT-driven layout shifts on first visit. */
 @font-face {
   font-family: "e-Ukraine";
   src: url("/fonts/e-Ukraine-Thin.otf") format("opentype");
   font-weight: 100;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "e-Ukraine";
   src: url("/fonts/e-Ukraine-UltraLight.otf") format("opentype");
   font-weight: 200;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "e-Ukraine";
   src: url("/fonts/e-Ukraine-Light.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
+/* Weights 400 and 700 are preloaded in layout.tsx — keep swap so the
+   preloaded font is applied as soon as it arrives. */
 @font-face {
   font-family: "e-Ukraine";
   src: url("/fonts/e-Ukraine-Regular.otf") format("opentype");
@@ -37,7 +41,7 @@
   src: url("/fonts/e-Ukraine-Medium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "e-Ukraine";
@@ -132,6 +136,7 @@ a:focus {
   top: 0;
   z-index: 100;
   padding: 0.75rem 0;
+  min-height: 56px;
 }
 .navbar-ep .brand {
   font-size: 1.2rem;
@@ -163,6 +168,7 @@ a:focus {
 }
 .hero-section h1 {
   font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.15;
   color: var(--color-text);
 }
 .hero-lead {
