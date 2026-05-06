@@ -7,8 +7,6 @@ import { AqiBadge } from "./AqiBadge";
 import { ErrorBoundary } from "./ErrorBoundary";
 import { trackMapMarkerClick } from "@/lib/analytics";
 
-// Leaflet не підтримує SSR — завантажуємо тільки на клієнті.
-// loading: показує скелет до того, як JS-бандл карти завантажиться.
 const StationMap = dynamic(() => import("./StationMap"), {
   ssr: false,
   loading: () => (
@@ -32,8 +30,7 @@ const StationMap = dynamic(() => import("./StationMap"), {
   ),
 });
 
-// Recharts завантажується лише тоді, коли користувач обрав станцію.
-// Це виключає ~180 KiB графічного коду з першого бандлу сторінки.
+// Recharts завантажується лише тоді коли користувач обрав станцію
 const StationCharts = dynamic(() => import("./StationCharts"), {
   loading: () => (
     <div

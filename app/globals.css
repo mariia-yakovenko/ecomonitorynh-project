@@ -1,11 +1,6 @@
-/* Bootstrap — імпортуємо з node_modules замість CDN.
-   Next.js мінімізує та бандлить цей CSS разом із рештою стилів.
-   Щоб прибрати невикористані класи — додати PurgeCSS (див. postcss.config.mjs). */
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 /* e-ukraine font */
-/* Weights 100–300, 500 use "optional": browser skips them if they aren't
-   cached, avoiding FOUT-driven layout shifts on first visit. */
 @font-face {
   font-family: "e-Ukraine";
   src: url("/fonts/e-Ukraine-Thin.otf") format("opentype");
@@ -27,8 +22,6 @@
   font-style: normal;
   font-display: optional;
 }
-/* Weights 400 and 700 are preloaded in layout.tsx — keep swap so the
-   preloaded font is applied as soon as it arrives. */
 @font-face {
   font-family: "e-Ukraine";
   src: url("/fonts/e-Ukraine-Regular.otf") format("opentype");
