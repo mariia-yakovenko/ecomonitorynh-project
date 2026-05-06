@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "npm" # Кешуємо модулі для швидкості
+          cache: "npm"
 
       # встановлюємо залежності проєкту
       - name: Install dependencies
